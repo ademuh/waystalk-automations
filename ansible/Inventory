@@ -1,2 +1,7 @@
+# This is an .ini file
+# Format :
+# [<name>]
+# <Public IP Address> ansible_user="<your username>"
+
 [server]
-172.21.201.13 "ansible_user=ads"
+172.21.201.13 ansible_user="ubuntu"
