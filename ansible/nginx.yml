@@ -5,10 +5,11 @@
   hosts: appserver
   tasks: 
     - 
+     name: "Installing nginx"
      apt: 
         name: nginx
         state: latest
-      name: "Installing nginx"
+      
     - 
       name: "Sending Proxy Configuration"
       ansible.builtin.copy: 
