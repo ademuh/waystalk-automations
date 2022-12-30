@@ -1,24 +1,18 @@
---- 
-- 
+---
+-
   become: true
   gather_facts: false
   hosts: appserver
-  tasks: 
-    - 
+  tasks:
+    -
      name: "Installing nginx"
-     apt: 
+     apt:
+       name: nginx
+       state: latest
+       update_cache: yes
+    -
+      name: start nginx
+      service:
         name: nginx
-        state: latest
-      
-    - 
-      name: "Sending Proxy Configuration"
-      ansible.builtin.copy: 
-        dest: /etc/nginx/sites-enabled
-        src: ~/config/rproxy/
-    - 
-      name: "Restarting nginx service"
-      service: 
-        enabled: true
-        name: nginx
-        state: restarted
+        state: started
 
