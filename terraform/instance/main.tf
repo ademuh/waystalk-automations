@@ -27,6 +27,5 @@ resource "idcloudhost_vm" "server" {
 
 resource "idcloudhost_floating_ip" "testip" {
     name = "My Network"
-    billing_account_id = 0987654321 # Billing ID from idcloudhost.com
     assigned_to = idcloudhost_vm.server.id
 }
