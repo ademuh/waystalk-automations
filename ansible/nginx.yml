@@ -5,14 +5,10 @@
   hosts: appserver
   tasks: 
     - 
-     name: Re-create a redis container
-      community.docker.docker_container:
-      name: nginx-test
-      image: nginx:alpine
-      state: present
-      recreate: true
-      ports:
-        - 8080:80
+     apt: 
+        name: nginx
+        state: latest
+      name: "Installing nginx"
     - 
       name: "Sending Proxy Configuration"
       ansible.builtin.copy: 
