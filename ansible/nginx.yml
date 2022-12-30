@@ -5,15 +5,19 @@
   hosts: appserver
   tasks: 
     - 
-      apt: 
-        name: nginx
-        state: latest
-      name: "Installing nginx"
+     name: Re-create a redis container
+      community.docker.docker_container:
+      name: nginx-test
+      image: nginx:alpine
+      state: present
+      recreate: true
+      ports:
+        - 8080:80
     - 
+      name: "Sending Proxy Configuration"
       ansible.builtin.copy: 
         dest: /etc/nginx/sites-enabled
         src: ~/config/rproxy/
-      name: "Sending Proxy Configuration"
     - 
       name: "Restarting nginx service"
       service: 

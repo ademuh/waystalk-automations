@@ -1,5 +1,0 @@
-server:
-  hosts:
-    vm01:
-      ansible_host: 172.21.201.13
-      ansible_user: ads

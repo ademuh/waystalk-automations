@@ -1,0 +1,7 @@
+server { 
+    server_name aimingds.my.id; 
+    
+        location / { 
+             proxy_pass http://<ip server>:<port app>;
+    }
+}

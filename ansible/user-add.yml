@@ -5,7 +5,7 @@
   hosts: appserver
   tasks: 
     - 
-      name: "Creating User [ade]"
+      name: "Creating User [username]"
       ansible.builtin.user: 
         groups: sudo
         name: "{{usernem}}"
@@ -14,12 +14,8 @@
         system: false
         append: yes
         home: /home/({usernem})
-    - 
-      name: "Reloading sshd"
-      systemd: 
-        name: sshd
-        state: reloaded
+
   vars: 
-   - usernem: "ade"
-   - passwot: "$6$TaSzosd339yI$Hh/y4YtxryoOnrESQZ2U61ebCSh/DvCYGatsmZ/TnZlC4RJdkLbGturqL0GTzu1wBBBk5VAuU.ymEuByDbJoa1"
+   - usernem: "ade" # Fill in your desired username
+   - passwot: "$6$TaSzosd339yI$Hh/y4YtxryoOnrESQZ2U61ebCSh/DvCYGatsmZ/TnZlC4RJdkLbGturqL0GTzu1wBBBk5VAuU.ymEuByDbJoa1" # whois encrypted password
 

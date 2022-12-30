@@ -44,8 +44,8 @@
       pip: 
         name: docker
     - 
-      name: "Docker Group Add [ade]"
+      name: "Docker Group Add [username]"
       shell: "sudo usermod -aG docker {{user}}"
   vars: 
-    user: ads
+    user: ads # Fill in desired username
 

@@ -1,0 +1,10 @@
+---
+-
+  become: true
+  gather_facts: false
+  hosts: appserver
+  tasks:
+    - name: Stop a container
+      community.docker.docker_container:
+        name: nginx-test
+        state: stopped
